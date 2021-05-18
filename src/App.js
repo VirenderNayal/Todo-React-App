@@ -1,11 +1,8 @@
-<<<<<<< HEAD
-=======
 import { useEffect, useState } from 'react';
 import { Button, Container, FormControl, FormHelperText, List, Paper, TextField } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import firebase from 'firebase';
 import { db } from './firebase';
->>>>>>> dev
 import './App.css';
 import Todo from './Todo';
 
@@ -34,22 +31,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-      <header className="App-header">
-        <img className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-=======
       <h1 style={{ fontFamily : 'monospace', fontSize : '2.5rem' }} > React-Todo-App </h1>
       <form style = {{ margin : '2rem' }} >
         <FormControl style={{ width: '100%' }}>
@@ -79,7 +60,6 @@ function App() {
           </List>
         </Paper>
       </Container>
->>>>>>> dev
     </div>
   );
 }
