@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Button, Container, FormControl, FormHelperText, List, Paper, TextField } from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 import { db } from './firebase';
 import './App.css';
 import Todo from './Todo';
+import { Height } from '@material-ui/icons';
 
 function App() {
   const [todos, setTodos] = useState([]);
@@ -31,8 +32,8 @@ function App() {
 
   return (
     <div className="App">
-      <h1 style={{ fontFamily : 'monospace', fontSize : '2.5rem' }} > React-Todo-App </h1>
-      <form style = {{ margin : '2rem' }} >
+      <h1 style={{ fontFamily: 'monospace', fontSize: '2.5rem' }} > React-Todo-App </h1>
+      <form style={{ margin: '2rem' }} >
         <FormControl style={{ width: '100%' }}>
           <TextField
             id=""
@@ -49,17 +50,23 @@ function App() {
         </Button>
       </form>
 
-      <Container>
-        <Paper elevation={3}>
-          <List>
-            {
-              todos.map(todo => (
-                <Todo todo={todo} key={todo.id} />
-              ))
-            }
-          </List>
+      {
+        todos.length != 0 ? 
+          <Container>
+          <Paper elevation={3}>
+            <List>
+              {
+                todos.map(todo => (
+                  <Todo todo={todo} key={todo.id} />
+                ))
+              }
+            </List>
+          </Paper>
+        </Container> : 
+        <Paper style={{width: '70vw', height: '30vh', justifyContent: 'center', alignItems: 'center', margin: 'auto', display: 'flex'}}>
+          <p style={{fontSize: '3rem', fontFamily: 'serif'}}>Add Notes :)</p>
         </Paper>
-      </Container>
+      }
     </div>
   );
 }
